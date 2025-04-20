@@ -1,3 +1,4 @@
+/* Instead of a tailwind.config.js file, in Tailwind V4 you can configure all of your customizations directly in the CSS file where you import Tailwind(e.g., global.css) */
 @import "tailwindcss";
 
 :root {

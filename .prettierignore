@@ -1,0 +1,32 @@
+# Build output
+.next/
+out/
+build/
+dist/
+
+# Node modules
+node_modules/
+
+# Cache
+.cache/
+.vercel/
+
+# Lock files
+package-lock.json
+yarn.lock
+bun.lock
+pnpm-lock.yaml
+
+# Public assets
+public/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Coverage directory
+coverage/
+
+# Misc
+.github/
+.vscode/
