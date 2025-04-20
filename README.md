@@ -22,7 +22,7 @@ A modern and optimized Next.js 15 boilerplate with App Router, featuring Bun, Ta
 
 1. Clone this repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/affrianr/next15-setup.git
 ```
 
 2. Install dependencies:
