@@ -108,25 +108,27 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
       {/* Header */}
-      <header className="mx-auto mb-8 flex max-w-5xl items-center justify-start pt-4 sm:pt-8">
-        <div className="flex items-center gap-3">
+      <header className="mx-auto mb-6 flex max-w-5xl items-center justify-start pt-4 sm:mb-8 sm:pt-8">
+        <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
           <div className="bg-primary/10 rounded-lg p-2">
-            <ImageIcon className="h-20 w-20 text-gray-900" />
+            <ImageIcon className="h-12 w-12 text-gray-900 sm:h-16 sm:w-16 lg:h-20 lg:w-20" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">WebP Converter</h1>
-            <p className="text-muted-foreground text-gray-900">
+            <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+              WebP Converter
+            </h1>
+            <p className="text-sm text-gray-900 sm:text-base">
               Convert your images to WebP format with custom quality
             </p>
           </div>
         </div>
       </header>
       <main className="mx-auto max-w-5xl">
-        <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg transition-all">
-          <div className="p-6">
-            <h2 className="mb-6 text-xl font-semibold text-gray-900">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-lg transition-all">
+          <div className="p-4 sm:p-6">
+            <h2 className="mb-4 text-lg font-semibold text-gray-900 sm:mb-6 sm:text-xl">
               Upload Your Image
             </h2>
 
@@ -158,20 +160,20 @@ export default function Home() {
                 onValueChange={setQuality}
                 className="w-full"
               />
-              <div className="mt-1 flex justify-between text-sm text-gray-700">
+              <div className="mt-1 flex justify-between text-xs text-gray-700 sm:text-sm">
                 <span>Lower size</span>
                 <span>Higher quality</span>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col flex-wrap gap-3 sm:flex-row sm:gap-4">
               <button
                 onClick={handleConvert}
                 disabled={!selectedFile || isConverting}
-                className="cursor-pointer rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                className="w-full cursor-pointer rounded-lg bg-blue-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-6"
               >
                 {isConverting ? (
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24">
                       <circle
                         className="opacity-25"
@@ -196,16 +198,16 @@ export default function Home() {
               </button>
               <button
                 onClick={handleReset}
-                className="cursor-pointer rounded-lg bg-gray-200 px-6 py-3 text-sm font-medium text-gray-800 shadow-sm transition-all hover:bg-gray-300"
+                className="w-full cursor-pointer rounded-lg bg-gray-200 px-4 py-3 text-sm font-medium text-gray-800 shadow-sm transition-all hover:bg-gray-300 sm:w-auto sm:px-6"
               >
                 Reset
               </button>
               {convertedImage && (
                 <button
                   onClick={handleDownload}
-                  className="cursor-pointer rounded-lg bg-green-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-green-700"
+                  className="w-full cursor-pointer rounded-lg bg-green-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-all hover:bg-green-700 sm:w-auto sm:px-6"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -228,15 +230,15 @@ export default function Home() {
           </div>
 
           {(preview || convertedImage) && (
-            <div className="border-t border-gray-200 bg-gray-50 p-6">
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="border-t border-gray-200 bg-gray-50 p-4 sm:p-6">
+              <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
                 {preview && (
-                  <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                  <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
                     <div className="p-4">
-                      <h3 className="mb-2 text-lg font-medium text-gray-900">
+                      <h3 className="mb-2 text-base font-medium text-gray-900 sm:text-lg">
                         Original Image
                       </h3>
-                      <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-100">
+                      <div className="relative h-48 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-64">
                         <Image
                           src={preview}
                           alt="Original image preview"
@@ -256,12 +258,12 @@ export default function Home() {
                 )}
 
                 {convertedImage && (
-                  <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                  <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
                     <div className="p-4">
-                      <h3 className="mb-2 text-lg font-medium text-gray-900">
+                      <h3 className="mb-2 text-base font-medium text-gray-900 sm:text-lg">
                         Converted WebP
                       </h3>
-                      <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-100">
+                      <div className="relative h-48 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-64">
                         <Image
                           src={convertedImage}
                           alt="Converted WebP image"
@@ -292,13 +294,13 @@ export default function Home() {
           )}
         </div>
 
-        <div className="mt-8">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            <div className="flex items-center gap-3 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
+        <div className="mt-6 sm:mt-8">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+            <div className="flex items-center gap-3 rounded-lg border border-blue-100 bg-blue-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-blue-600"
+                  className="h-4 w-4 text-blue-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -310,18 +312,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-blue-900">Smaller File Size</h4>
-                <p className="text-sm text-blue-700">
+                <h4 className="text-sm font-medium text-blue-900 sm:text-base">
+                  Smaller File Size
+                </h4>
+                <p className="text-xs text-blue-700 sm:text-sm">
                   Maintain quality while reducing size
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-purple-100 bg-purple-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-100">
+            <div className="flex items-center gap-3 rounded-lg border border-purple-100 bg-purple-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-purple-600"
+                  className="h-4 w-4 text-purple-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -334,20 +338,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-purple-900">
+                <h4 className="text-sm font-medium text-purple-900 sm:text-base">
                   Transparency Support
                 </h4>
-                <p className="text-sm text-purple-700">
+                <p className="text-xs text-purple-700 sm:text-sm">
                   Like PNG but more efficient
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-green-100 bg-green-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
+            <div className="flex items-center gap-3 rounded-lg border border-green-100 bg-green-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-green-600"
+                  className="h-4 w-4 text-green-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -359,20 +363,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-green-900">
+                <h4 className="text-sm font-medium text-green-900 sm:text-base">
                   Animation Support
                 </h4>
-                <p className="text-sm text-green-700">
+                <p className="text-xs text-green-700 sm:text-sm">
                   Alternative to GIF with better quality
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100">
+            <div className="flex items-center gap-3 rounded-lg border border-amber-100 bg-amber-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-amber-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-amber-600"
+                  className="h-4 w-4 text-amber-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -384,20 +388,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-amber-900">
+                <h4 className="text-sm font-medium text-amber-900 sm:text-base">
                   Better Compression
                 </h4>
-                <p className="text-sm text-amber-700">
+                <p className="text-xs text-amber-700 sm:text-sm">
                   Superior to JPEG, PNG, and GIF
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-rose-100 bg-rose-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-rose-100">
+            <div className="flex items-center gap-3 rounded-lg border border-rose-100 bg-rose-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-rose-600"
+                  className="h-4 w-4 text-rose-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -409,18 +413,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-rose-900">Faster Loading</h4>
-                <p className="text-sm text-rose-700">
+                <h4 className="text-sm font-medium text-rose-900 sm:text-base">
+                  Faster Loading
+                </h4>
+                <p className="text-xs text-rose-700 sm:text-sm">
                   Improved web page performance
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-teal-100 bg-teal-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-teal-100">
+            <div className="flex items-center gap-3 rounded-lg border border-teal-100 bg-teal-50 px-3 py-3 shadow-sm transition-all hover:shadow-md sm:px-4">
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 sm:h-10 sm:w-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-teal-600"
+                  className="h-4 w-4 text-teal-600 sm:h-5 sm:w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -428,16 +434,20 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h4 className="font-medium text-teal-900">Reduced Bandwidth</h4>
-                <p className="text-sm text-teal-700">Lower data consumption</p>
+                <h4 className="text-sm font-medium text-teal-900 sm:text-base">
+                  Reduced Bandwidth
+                </h4>
+                <p className="text-xs text-teal-700 sm:text-sm">
+                  Lower data consumption
+                </p>
               </div>
             </div>
           </div>
         </div>
       </main>
       {/* Copyright Footer */}
-      <footer className="mx-auto mt-8 max-w-5xl border-t border-gray-200 py-6">
-        <div className="flex items-center justify-between px-4">
+      <footer className="mx-auto mt-6 max-w-5xl border-t border-gray-200 py-4 sm:mt-8 sm:py-6">
+        <div className="flex flex-col items-center justify-between gap-2 px-4 sm:flex-row sm:gap-0">
           <p className="text-center text-sm text-gray-500">
             © {new Date().getFullYear()} - Affrian
           </p>
@@ -445,7 +455,7 @@ export default function Home() {
             href="https://github.com/affrianr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex cursor-pointer items-center text-sm font-medium text-gray-500 transition-all"
+            className="inline-flex cursor-pointer items-center text-sm font-medium text-gray-500 transition-all hover:text-gray-700"
           >
             GitHub
           </a>
