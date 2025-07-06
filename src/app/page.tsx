@@ -292,7 +292,7 @@ export default function Home() {
           )}
         </div>
 
-        <div className="mt-8 overflow-hidden">
+        <div className="mt-8">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             <div className="flex items-center gap-3 rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 shadow-sm transition-all hover:shadow-md">
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
