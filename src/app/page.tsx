@@ -110,10 +110,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="mb-8 flex items-center justify-center pt-4 sm:pt-8">
+      <header className="mx-auto mb-8 flex max-w-5xl items-center justify-start pt-4 sm:pt-8">
         <div className="flex items-center gap-3">
           <div className="bg-primary/10 rounded-lg p-2">
-            <ImageIcon className="h-6 w-6 text-gray-900" />
+            <ImageIcon className="h-20 w-20 text-gray-900" />
           </div>
           <div>
             <h1 className="text-3xl font-bold text-gray-900">WebP Converter</h1>
@@ -439,7 +439,7 @@ export default function Home() {
       <footer className="mx-auto mt-8 max-w-5xl border-t border-gray-200 py-6">
         <div className="flex items-center justify-between px-4">
           <p className="text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} Made with ❤️ by Affrian
+            © {new Date().getFullYear()} - Affrian
           </p>
           <a
             href="https://github.com/affrianr"
