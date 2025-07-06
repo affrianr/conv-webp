@@ -1,0 +1,33 @@
+# Version control
+.git
+.gitignore
+
+# Build artifacts
+.next
+out
+
+# Dependencies
+node_modules
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Development files
+.husky
+.vscode
+.idea
+*.log
+*.md
+!README.md
+
+# Environment variables
+.env*
+!.env.example
+
+# Testing
+coverage
+
+# Misc
+.DS_Store
